@@ -1,0 +1,7 @@
+
+/nod_modules
+./dist
+
+*.env
+.env
+.env.*
