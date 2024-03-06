@@ -28,9 +28,10 @@ import express from "express"
 ;( async () => {
     try{
         await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-    }catch(error){
-        console.log("ERROR:", error)
-        throw err
+        app.on("error",(error) => {
+            console.log("ERRR: ", error);
+            throw error
+        })
     })
     app.listen(process.env.PORT, () => {
         console.log(`App is listening on port ${process.env.PORT}`);
